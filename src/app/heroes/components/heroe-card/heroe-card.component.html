@@ -1,0 +1,19 @@
+<mat-card >
+    <mat-card-header>
+        <mat-card-title>{{heroe.superhero}}</mat-card-title>  
+    </mat-card-header>
+    <img mat-card-image [src] ="heroe | imagen" >   <!-- PIPES -->
+    <!-- <img mat-card-image src="assets/heroes/{{heroe.id}}.jpg "> -->
+    <mat-card-content >
+        <p>ALTEREGO: <br> {{heroe.alter_ego}}<br></p>
+    </mat-card-content>
+    <mat-card-actions fxLayoutGap="20px"> <!-- espacio reservado a collocar botones -->
+    <button mat-button
+    [routerLink]="['/heroes', heroe.id ]">
+    Read More</button>
+    <button mat-button
+    [routerLink]="['/heroes/edit', heroe.id ]">
+    Edit</button>
+    
+    </mat-card-actions>
+    </mat-card>

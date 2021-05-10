@@ -1,0 +1,15 @@
+
+<h1 fxLayoutAlign="center">Are you sure?</h1>
+<h2 fxLayoutAlign="center" color="black">
+    {{data.superhero}} will be deleted 
+</h2>
+<hr>
+
+<p fxLayoutAlign="center"> 
+    Do you want to continue?
+</p>
+
+<div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
+    <button mat-raised-button (click)="borrar()" color="primary">Yes</button>
+    <button mat-raised-button (click)="cerrar()" color="primary">Back</button>
+</div>

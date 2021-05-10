@@ -1,0 +1,77 @@
+<h1>{{(heroe.id)? 'Edit' : ' New'}}  Hero: 
+    <!-- SI HEROE.ID EXISTE PONES LA PALABRA EDIT, SI NO EXISTE PONES LA PALABRA NEW -->
+    
+    <small> {{heroe.superhero}} </small></h1>
+<div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="50px">
+    <div fxFlex="50" fxLayout="column">
+        <div fxLayout="row" fxLayout.xs="column"  fxLayoutGap="20px">
+            <mat-form-field>
+                <mat-label>Superhero </mat-label>
+                <input matInput type="text" 
+                [(ngModel)]="heroe.superhero"
+                required>
+            </mat-form-field>
+            <mat-form-field fxFlex="100">
+                <mat-label>Alterego </mat-label>
+                <input matInput type="text"
+                [(ngModel)]="heroe.alter_ego"
+                required>
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field >
+            <mat-label>First Appereance </mat-label>
+            <input matInput type="text"
+            [(ngModel)]="heroe.first_appearance"
+            required>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label>Characters </mat-label>
+            <input matInput type="text" 
+            [(ngModel)]="heroe.characters"
+            required>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label>Publisher </mat-label>
+            <mat-select 
+            [(ngModel)]="heroe.publisher"
+            required>
+                <mat-option  *ngFor="let publisher of publisher" 
+                [value] ="publisher.id">
+            <mat-label>{{publisher.description}} </mat-label>
+            </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label>Photo Url </mat-label>
+            <input matInput type="url"
+            [(ngModel)]="heroe.alt_img"
+            required>
+        </mat-form-field>
+
+        <br>
+        <div fxLayoutAlign="center" fxLayoutGap="20px">
+        <button mat-raised-button 
+        color="primary"
+        (click)="save()"
+        ><mat-icon>add</mat-icon> 
+         {{(heroe.id)? 'Update' : 'Add'}} 
+        </button>
+        
+        <button *ngIf="heroe.id"
+        mat-raised-button 
+        color="primary"
+        (click)="borrarHeroe()">
+            <mat-icon>remove</mat-icon> Delete
+        </button>
+        <button mat-flat-button (click)="regresar()">
+            BACK TO LIST
+        </button>
+    </div>
+</div>
+
+    <div>
+        <img [src]="heroe | imagen">
+    </div>
+
+</div>
